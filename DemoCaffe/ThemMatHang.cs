@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 namespace DemoCaffe
 {
     public partial class ThemMatHang : Form
-    {
+    {		
         public ThemMatHang()
         {
             InitializeComponent();
@@ -36,5 +37,153 @@ namespace DemoCaffe
         {
 
         }
-    }
+
+		private void cbLoaiMH_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnThem_Click(object sender, EventArgs e)
+		{
+			// Kiểm tra xem đã chọn một loại mặt hàng từ ComboBox chưa
+			if (cbLoaiMH.SelectedItem == null)
+			{
+				MessageBox.Show("Vui lòng chọn một loại mặt hàng.");
+				return;
+			}
+
+			// Lấy mã loại mặt hàng từ đối tượng được chọn
+			string maLoai = ((LoaiMatHangItem)cbLoaiMH.SelectedItem).MaLoai;
+
+			// Mở kết nối đến cơ sở dữ liệu
+			using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+			{
+				try
+				{
+					connection.Open();
+
+					// Tạo mã mặt hàng tự động bằng cách ghép mã loại với số thứ tự
+					string queryGetMaxMaMH = "SELECT MAX(MaMH) FROM MENU WHERE MaMH LIKE @MaLoaiPrefix";
+					using (SqlCommand getMaxMaMHCommand = new SqlCommand(queryGetMaxMaMH, connection))
+					{
+						// Xác định số thứ tự tiếp theo cho mặt hàng trong loại đó
+						getMaxMaMHCommand.Parameters.AddWithValue("@MaLoaiPrefix", maLoai + "%");
+						object maxMaMHObject = getMaxMaMHCommand.ExecuteScalar();
+						int nextNumber = 1;
+
+						if (maxMaMHObject != null && maxMaMHObject != DBNull.Value)
+						{
+							string maxMaMH = maxMaMHObject.ToString();
+							string numberPart = maxMaMH.Substring(maLoai.Length); // Lấy phần số thứ tự từ mã mặt hàng
+							int.TryParse(numberPart, out int currentNumber);
+							nextNumber = currentNumber + 1;
+						}
+
+						string newMaMH = maLoai + nextNumber.ToString().PadLeft(3, '0'); // Ghép mã loại với số thứ tự
+
+						// Tạo truy vấn SQL để thêm mặt hàng mới
+						string query = "INSERT INTO MENU (MaMH, TenMH, GiaCa, DVT, MaLoai) VALUES (@MaMH, @TenMH, @GiaCa, @DVT, @MaLoai)";
+
+						// Tạo một đối tượng SqlCommand để thực thi truy vấn
+						using (SqlCommand command = new SqlCommand(query, connection))
+						{
+							// Truyền các giá trị từ các điều khiển trên giao diện người dùng vào truy vấn
+							command.Parameters.AddWithValue("@MaMH", newMaMH);
+							command.Parameters.AddWithValue("@TenMH", txtTenMH.Text);
+							command.Parameters.AddWithValue("@GiaCa", Convert.ToDecimal(txtDonGia.Text));
+							command.Parameters.AddWithValue("@DVT", txtDVT.Text);
+							command.Parameters.AddWithValue("@MaLoai", maLoai);
+
+							// Thực thi truy vấn
+							int rowsAffected = command.ExecuteNonQuery();
+
+							if (rowsAffected > 0)
+							{
+								MessageBox.Show("Thêm mặt hàng thành công!");
+								// Sau khi thêm thành công, bạn có thể làm mới giao diện người dùng hoặc thực hiện các hành động khác cần thiết.
+								LoadMatHang();
+							}
+							else
+							{
+								MessageBox.Show("Thêm mặt hàng không thành công!");
+							}
+						}
+					}
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show("Lỗi: " + ex.Message);
+				}
+			}
+		}
+		private void LoadMatHang()
+		{
+			// Mở kết nối đến cơ sở dữ liệu
+			using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+			{
+				try
+				{
+					connection.Open();
+
+					// Truy vấn để lấy danh sách các mặt hàng
+					string query = "SELECT * FROM MENU";
+
+					// Tạo một đối tượng SqlCommand để thực thi truy vấn
+					using (SqlCommand command = new SqlCommand(query, connection))
+					{
+						SqlDataAdapter adapter = new SqlDataAdapter(command);
+						DataTable dataTable = new DataTable();
+						adapter.Fill(dataTable);
+
+						// Hiển thị dữ liệu trên DataGridView
+						dgvMatHang.DataSource = dataTable;
+					}
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show("Lỗi: " + ex.Message);
+				}
+			}
+		}
+		private void ThemMatHang_Load(object sender, EventArgs e)
+		{
+			LoadLoaiMatHang();
+			LoadMatHang();
+		}
+		private void LoadLoaiMatHang()
+		{
+			// Mở kết nối đến cơ sở dữ liệu
+			using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+			{
+				try
+				{
+					connection.Open();
+
+					// Truy vấn để lấy danh sách các loại mặt hàng
+					string query = "SELECT MaLoai, TenLoai FROM LOAIMATHANG";
+
+					// Tạo một đối tượng SqlCommand để thực thi truy vấn
+					using (SqlCommand command = new SqlCommand(query, connection))
+					{
+						SqlDataReader reader = command.ExecuteReader();
+
+						// Duyệt qua các dòng kết quả và thêm vào ComboBox
+						while (reader.Read())
+						{
+							string maLoai = reader["MaLoai"].ToString();
+							string tenLoai = reader["TenLoai"].ToString();
+							cbLoaiMH.Items.Add(new LoaiMatHangItem(maLoai, tenLoai));
+						}
+
+						// Đóng DataReader sau khi sử dụng
+						reader.Close();
+					}
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show("Lỗi: " + ex.Message);
+				}
+			}
+		}
+	}
 }

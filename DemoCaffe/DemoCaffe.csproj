@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionString.cs" />
+    <Compile Include="LoaiMatHangItem.cs" />
     <Compile Include="ThemChiTietHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>

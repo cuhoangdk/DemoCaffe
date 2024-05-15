@@ -11,3 +11,17 @@ C:\Workspace\CongNghePhanMem\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.csproj.Gene
 C:\Workspace\CongNghePhanMem\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.csproj.CoreCompileInputs.cache
 C:\Workspace\CongNghePhanMem\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.exe
 C:\Workspace\CongNghePhanMem\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.pdb
+C:\Users\Admin\source\repos\DemoCaffe\DemoCaffe\bin\Debug\DemoCaffe.exe.config
+C:\Users\Admin\source\repos\DemoCaffe\DemoCaffe\bin\Debug\DemoCaffe.exe
+C:\Users\Admin\source\repos\DemoCaffe\DemoCaffe\bin\Debug\DemoCaffe.pdb
+C:\Users\Admin\source\repos\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.ThemChiTietHoaDon.resources
+C:\Users\Admin\source\repos\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.ThemHoaDonBanHang.resources
+C:\Users\Admin\source\repos\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.ThemMatHang.resources
+C:\Users\Admin\source\repos\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.Properties.Resources.resources
+C:\Users\Admin\source\repos\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.ThongKeChungTheoMatHang.resources
+C:\Users\Admin\source\repos\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.TimKiemMatHang.resources
+C:\Users\Admin\source\repos\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.exe
+C:\Users\Admin\source\repos\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.pdb
