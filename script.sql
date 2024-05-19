@@ -1,4 +1,5 @@
 ﻿USE [master]
+drop database [CafeGocNho]
 GO
 /****** Object:  Database [CafeGocNho]    Script Date: 16/05/2024 11:20:29 ******/
 CREATE DATABASE [CafeGocNho]
