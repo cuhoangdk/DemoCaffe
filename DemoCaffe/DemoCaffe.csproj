@@ -46,8 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ban.cs" />
+    <Compile Include="CafeGocNhoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CafeGocNhoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ChiTietHoaDon.cs" />
     <Compile Include="ConnectionString.cs" />
     <Compile Include="LoaiMatHangItem.cs" />
+    <Compile Include="NhanVien.cs" />
     <Compile Include="ThemChiTietHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +112,17 @@
     <EmbeddedResource Include="TimKiemMatHang.resx">
       <DependentUpon>TimKiemMatHang.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CafeGocNhoDataSet.xsc">
+      <DependentUpon>CafeGocNhoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CafeGocNhoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CafeGocNhoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CafeGocNhoDataSet.xss">
+      <DependentUpon>CafeGocNhoDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

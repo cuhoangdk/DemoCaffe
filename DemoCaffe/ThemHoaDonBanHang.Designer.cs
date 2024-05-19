@@ -44,10 +44,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtThoiGian = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtMaMH = new System.Windows.Forms.TextBox();
+            this.txtMaHD = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cbNhanVien = new System.Windows.Forms.ComboBox();
+            this.btnThemMH = new System.Windows.Forms.Button();
+            this.btnXoaMH = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHoaDon)).BeginInit();
             this.SuspendLayout();
@@ -59,18 +61,20 @@
             this.dgvHoaDon.Name = "dgvHoaDon";
             this.dgvHoaDon.RowHeadersWidth = 51;
             this.dgvHoaDon.RowTemplate.Height = 24;
-            this.dgvHoaDon.Size = new System.Drawing.Size(731, 176);
+            this.dgvHoaDon.Size = new System.Drawing.Size(837, 176);
             this.dgvHoaDon.TabIndex = 14;
+            this.dgvHoaDon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellContentClick);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.label2.Location = new System.Drawing.Point(420, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(426, 39);
+            this.label2.Size = new System.Drawing.Size(331, 38);
             this.label2.TabIndex = 15;
-            this.label2.Text = "THỐNG KÊ DOANH THU";
+            this.label2.Text = "Thêm Hóa Đơn Xuất";
             // 
             // dgvChiTietHoaDon
             // 
@@ -79,7 +83,7 @@
             this.dgvChiTietHoaDon.Name = "dgvChiTietHoaDon";
             this.dgvChiTietHoaDon.RowHeadersWidth = 51;
             this.dgvChiTietHoaDon.RowTemplate.Height = 24;
-            this.dgvChiTietHoaDon.Size = new System.Drawing.Size(731, 176);
+            this.dgvChiTietHoaDon.Size = new System.Drawing.Size(837, 176);
             this.dgvChiTietHoaDon.TabIndex = 16;
             // 
             // btnQuayLai
@@ -131,6 +135,7 @@
             this.btnThem.TabIndex = 29;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // cbBan
             // 
@@ -140,6 +145,7 @@
             this.cbBan.Name = "cbBan";
             this.cbBan.Size = new System.Drawing.Size(215, 33);
             this.cbBan.TabIndex = 28;
+            this.cbBan.SelectedIndexChanged += new System.EventHandler(this.cbBan_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -210,17 +216,16 @@
             this.label1.Size = new System.Drawing.Size(122, 25);
             this.label1.TabIndex = 20;
             this.label1.Text = "Mã hóa đơn:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // txtMaMH
+            // txtMaHD
             // 
-            this.txtMaMH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaMH.Enabled = false;
-            this.txtMaMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaMH.Location = new System.Drawing.Point(179, 79);
-            this.txtMaMH.Name = "txtMaMH";
-            this.txtMaMH.Size = new System.Drawing.Size(215, 30);
-            this.txtMaMH.TabIndex = 19;
+            this.txtMaHD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMaHD.Enabled = false;
+            this.txtMaHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaHD.Location = new System.Drawing.Point(179, 79);
+            this.txtMaHD.Name = "txtMaHD";
+            this.txtMaHD.Size = new System.Drawing.Size(215, 30);
+            this.txtMaHD.TabIndex = 19;
             // 
             // label7
             // 
@@ -250,12 +255,36 @@
             this.cbNhanVien.Name = "cbNhanVien";
             this.cbNhanVien.Size = new System.Drawing.Size(215, 33);
             this.cbNhanVien.TabIndex = 36;
+            this.cbNhanVien.SelectedIndexChanged += new System.EventHandler(this.cbNhanVien_SelectedIndexChanged);
+            // 
+            // btnThemMH
+            // 
+            this.btnThemMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemMH.Location = new System.Drawing.Point(863, 69);
+            this.btnThemMH.Name = "btnThemMH";
+            this.btnThemMH.Size = new System.Drawing.Size(190, 49);
+            this.btnThemMH.TabIndex = 37;
+            this.btnThemMH.Text = "Thêm Mặt Hàng";
+            this.btnThemMH.UseVisualStyleBackColor = true;
+            this.btnThemMH.Click += new System.EventHandler(this.btnThemMH_Click);
+            // 
+            // btnXoaMH
+            // 
+            this.btnXoaMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaMH.Location = new System.Drawing.Point(1059, 69);
+            this.btnXoaMH.Name = "btnXoaMH";
+            this.btnXoaMH.Size = new System.Drawing.Size(195, 49);
+            this.btnXoaMH.TabIndex = 38;
+            this.btnXoaMH.Text = "Xóa Mặt Hàng";
+            this.btnXoaMH.UseVisualStyleBackColor = true;
             // 
             // ThemHoaDonBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 553);
+            this.ClientSize = new System.Drawing.Size(1266, 607);
+            this.Controls.Add(this.btnXoaMH);
+            this.Controls.Add(this.btnThemMH);
             this.Controls.Add(this.cbNhanVien);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -272,7 +301,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtThoiGian);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtMaMH);
+            this.Controls.Add(this.txtMaHD);
             this.Controls.Add(this.dgvChiTietHoaDon);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvHoaDon);
@@ -303,9 +332,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtThoiGian;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtMaMH;
+        private System.Windows.Forms.TextBox txtMaHD;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbNhanVien;
+        private System.Windows.Forms.Button btnThemMH;
+        private System.Windows.Forms.Button btnXoaMH;
     }
 }

@@ -34,26 +34,28 @@
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.btnQuayLai = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.selectedItem = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatHang)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvMatHang
             // 
             this.dgvMatHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMatHang.Location = new System.Drawing.Point(12, 67);
+            this.dgvMatHang.Location = new System.Drawing.Point(12, 66);
             this.dgvMatHang.Name = "dgvMatHang";
             this.dgvMatHang.RowHeadersWidth = 51;
             this.dgvMatHang.RowTemplate.Height = 24;
-            this.dgvMatHang.Size = new System.Drawing.Size(1158, 291);
+            this.dgvMatHang.Size = new System.Drawing.Size(764, 291);
             this.dgvMatHang.TabIndex = 13;
+            this.dgvMatHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatHang_CellContentClick);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(420, 10);
+            this.label2.Location = new System.Drawing.Point(185, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(371, 39);
+            this.label2.Size = new System.Drawing.Size(361, 38);
             this.label2.TabIndex = 14;
             this.label2.Text = "QUẢN LÝ MẶT HÀNG";
             // 
@@ -75,6 +77,7 @@
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(215, 30);
             this.txtSoLuong.TabIndex = 28;
+            this.txtSoLuong.TextChanged += new System.EventHandler(this.txtSoLuong_TextChanged);
             // 
             // btnQuayLai
             // 
@@ -85,6 +88,7 @@
             this.btnQuayLai.TabIndex = 36;
             this.btnQuayLai.Text = "Quay lại";
             this.btnQuayLai.UseVisualStyleBackColor = true;
+            this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
             // 
             // btnThem
             // 
@@ -95,12 +99,25 @@
             this.btnThem.TabIndex = 35;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.BtnThem_Click);
+            // 
+            // selectedItem
+            // 
+            this.selectedItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectedItem.Location = new System.Drawing.Point(330, 375);
+            this.selectedItem.Name = "selectedItem";
+            this.selectedItem.Size = new System.Drawing.Size(446, 30);
+            this.selectedItem.TabIndex = 37;
+            this.selectedItem.Text = "Chọn: ";
+            this.selectedItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ThemChiTietHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 553);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(788, 553);
+            this.Controls.Add(this.selectedItem);
             this.Controls.Add(this.btnQuayLai);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.label6);
@@ -123,5 +140,6 @@
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.Button btnQuayLai;
         private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Label selectedItem;
     }
 }

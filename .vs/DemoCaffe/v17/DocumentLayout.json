@@ -1,0 +1,116 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{99F21C9A-B070-4E09-8162-B3662B5ADB27}|DemoCaffe\\DemoCaffe.csproj|c:\\users\\admin\\source\\repos\\democaffe\\democaffe\\themhoadonbanhang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99F21C9A-B070-4E09-8162-B3662B5ADB27}|DemoCaffe\\DemoCaffe.csproj|solutionrelative:democaffe\\themhoadonbanhang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99F21C9A-B070-4E09-8162-B3662B5ADB27}|DemoCaffe\\DemoCaffe.csproj|c:\\users\\admin\\source\\repos\\democaffe\\democaffe\\themhoadonbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99F21C9A-B070-4E09-8162-B3662B5ADB27}|DemoCaffe\\DemoCaffe.csproj|solutionrelative:democaffe\\themhoadonbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99F21C9A-B070-4E09-8162-B3662B5ADB27}|DemoCaffe\\DemoCaffe.csproj|c:\\users\\admin\\source\\repos\\democaffe\\democaffe\\themhoadonbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{99F21C9A-B070-4E09-8162-B3662B5ADB27}|DemoCaffe\\DemoCaffe.csproj|solutionrelative:democaffe\\themhoadonbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ThemHoaDonBanHang.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.cs",
+              "RelativeDocumentMoniker": "DemoCaffe\\ThemHoaDonBanHang.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.cs",
+              "RelativeToolTip": "DemoCaffe\\ThemHoaDonBanHang.cs",
+              "ViewState": "AQIAADoAAAAAAAAAAAAkwLEAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T04:07:24.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ThemHoaDonBanHang.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.Designer.cs",
+              "RelativeDocumentMoniker": "DemoCaffe\\ThemHoaDonBanHang.Designer.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.Designer.cs",
+              "RelativeToolTip": "DemoCaffe\\ThemHoaDonBanHang.Designer.cs",
+              "ViewState": "AQIAACMBAAAAAAAAAAAwwCcBAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T04:05:31.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c9c0ae26-aa77-11d2-b3f0-0000f87570ee}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f53-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ThemHoaDonBanHang.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.cs",
+              "RelativeDocumentMoniker": "DemoCaffe\\ThemHoaDonBanHang.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.cs [Design]",
+              "RelativeToolTip": "DemoCaffe\\ThemHoaDonBanHang.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T03:34:10.74Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

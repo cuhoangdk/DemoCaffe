@@ -16,9 +16,15 @@ namespace DemoCaffe
         public TimKiemMatHang()
         {
             InitializeComponent();
+            this.dgvMatHang.CellContentClick += dgvMatHang_CellContentClick;
         }
 
-		private void TimKiemMatHang_Load(object sender, EventArgs e)
+        private void dgvMatHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void TimKiemMatHang_Load(object sender, EventArgs e)
 		{
 			LoadLoaiMatHang();
 		}
@@ -60,11 +66,6 @@ namespace DemoCaffe
 		}
 
 		private void btnTimKiem_Click(object sender, EventArgs e)
-		{
-			
-		}
-
-		private void btnTimKiem_Click_1(object sender, EventArgs e)
 		{
 			// Xây dựng câu truy vấn dựa trên điều kiện tìm kiếm
 			string query = "SELECT * FROM MENU WHERE 1=1";
