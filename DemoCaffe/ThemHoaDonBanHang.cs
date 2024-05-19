@@ -50,6 +50,7 @@ namespace DemoCaffe
                 maBan = selectedBan.MaBan;
             }
         }
+
         private void cbNhanVien_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Lấy giá trị của mục được chọn và gán vào biến maNV
