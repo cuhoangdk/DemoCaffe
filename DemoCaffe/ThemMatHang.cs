@@ -54,6 +54,7 @@ namespace DemoCaffe
 
 			// Lấy mã loại mặt hàng từ đối tượng được chọn
 			string maLoai = ((LoaiMatHangItem)cbLoaiMH.SelectedItem).MaLoai;
+			string tenMH = txtTenMH.Text;
 
 			// Mở kết nối đến cơ sở dữ liệu
 			using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
@@ -61,6 +62,20 @@ namespace DemoCaffe
 				try
 				{
 					connection.Open();
+
+					// Kiểm tra sự tồn tại của sản phẩm với tên cụ thể
+					string queryCheckExist = "SELECT COUNT(*) FROM MENU WHERE TenMH = @TenMH";
+					using (SqlCommand checkExistCommand = new SqlCommand(queryCheckExist, connection))
+					{
+						checkExistCommand.Parameters.AddWithValue("@TenMH", tenMH);
+						int count = (int)checkExistCommand.ExecuteScalar();
+
+						if (count > 0)
+						{
+							MessageBox.Show("Sản phẩm với tên này đã tồn tại. Vui lòng chọn tên khác.");
+							return;
+						}
+					}
 
 					// Tạo mã mặt hàng tự động bằng cách ghép mã loại với số thứ tự
 					string queryGetMaxMaMH = "SELECT MAX(MaMH) FROM MENU WHERE MaMH LIKE @MaLoaiPrefix";
@@ -89,7 +104,7 @@ namespace DemoCaffe
 						{
 							// Truyền các giá trị từ các điều khiển trên giao diện người dùng vào truy vấn
 							command.Parameters.AddWithValue("@MaMH", newMaMH);
-							command.Parameters.AddWithValue("@TenMH", txtTenMH.Text);
+							command.Parameters.AddWithValue("@TenMH", tenMH);
 							command.Parameters.AddWithValue("@GiaCa", Convert.ToDecimal(txtDonGia.Text));
 							command.Parameters.AddWithValue("@DVT", txtDVT.Text);
 							command.Parameters.AddWithValue("@MaLoai", maLoai);
@@ -100,8 +115,11 @@ namespace DemoCaffe
 							if (rowsAffected > 0)
 							{
 								MessageBox.Show("Thêm mặt hàng thành công!");
-								// Sau khi thêm thành công, bạn có thể làm mới giao diện người dùng hoặc thực hiện các hành động khác cần thiết.
+
+								// Hiển thị lại danh sách mặt hàng trên DataGridView
 								LoadMatHang();
+
+								// Sau khi thêm thành công, bạn có thể làm mới giao diện người dùng hoặc thực hiện các hành động khác cần thiết.
 							}
 							else
 							{

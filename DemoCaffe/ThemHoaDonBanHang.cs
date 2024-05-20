@@ -81,7 +81,7 @@ namespace DemoCaffe
                     connection.Open();
 
                     // Tạo truy vấn SQL để chèn dữ liệu vào bảng HoaDon
-                    string queryHD = "INSERT INTO HoaDon (MaHD, MaBan, MaNV,ThoiGian) VALUES (@MaHD, @MaBan, @MaNV, @ThoiGian)";
+                    string queryHD = "INSERT INTO HOADON (MaHD, MaBan, MaNV,ThoiGian) VALUES (@MaHD, @MaBan, @MaNV, @ThoiGian)";
 
                     // Tạo một đối tượng SqlCommand để thực thi truy vấn
                     using (SqlCommand command = new SqlCommand(queryHD, connection))
@@ -126,7 +126,7 @@ namespace DemoCaffe
                             // Tiếp tục thêm mã mặt hàng vào bảng ChiTietHoaDon
 
                             // Tạo truy vấn SQL để chèn dữ liệu vào bảng HoaDon
-                            string queryCTHD = "INSERT INTO ChiTietHoaDon (MaHD, MaMH, SoLuong,GiaCa) VALUES (@MaHD, @MaMH, @SoLuong, @GiaCa)";
+                            string queryCTHD = "INSERT INTO CHITIETHOADON (MaHD, MaMH, SoLuong,GiaCa) VALUES (@MaHD, @MaMH, @SoLuong, @GiaCa)";
 
                             // Tạo một đối tượng SqlCommand để thực thi truy vấn
                             using (SqlCommand command = new SqlCommand(queryCTHD, connection))
@@ -434,5 +434,13 @@ namespace DemoCaffe
                 }
             }
         }
-    }
+
+		private void btn_LamMoi_Click(object sender, EventArgs e)
+		{		
+			txtThoiGian.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+			txtTongTien.Clear();
+			cbBan.SelectedIndex = -1; 
+            cbNhanVien.SelectedIndex = -1;
+		}
+	}
 }
