@@ -40,3 +40,4 @@ C:\Workspace\QuanLyDuAnPhanMem\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.csproj.Ge
 C:\Workspace\QuanLyDuAnPhanMem\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.csproj.CoreCompileInputs.cache
 C:\Workspace\QuanLyDuAnPhanMem\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.exe
 C:\Workspace\QuanLyDuAnPhanMem\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.pdb
+C:\Users\Admin\source\repos\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.ManHinhChinh.resources
