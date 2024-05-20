@@ -436,8 +436,7 @@ namespace DemoCaffe
         }
 
 		private void btn_LamMoi_Click(object sender, EventArgs e)
-		{			
-			txtMaHD.Clear();
+		{		
 			txtThoiGian.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 			txtTongTien.Clear();
 			cbBan.SelectedIndex = -1; 

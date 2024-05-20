@@ -16,7 +16,7 @@ namespace DemoCaffe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ThemMatHang());
+            Application.Run(new ThongKeChungTheoMatHang());
         }
     }
 }
