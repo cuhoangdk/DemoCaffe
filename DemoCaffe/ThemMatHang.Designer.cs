@@ -160,9 +160,11 @@
 			// 
 			this.dgvMatHang.AllowUserToAddRows = false;
 			this.dgvMatHang.AllowUserToDeleteRows = false;
+			this.dgvMatHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvMatHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvMatHang.Location = new System.Drawing.Point(417, 80);
 			this.dgvMatHang.Name = "dgvMatHang";
+			this.dgvMatHang.ReadOnly = true;
 			this.dgvMatHang.RowHeadersWidth = 51;
 			this.dgvMatHang.RowTemplate.Height = 24;
 			this.dgvMatHang.Size = new System.Drawing.Size(735, 461);
