@@ -18,30 +18,6 @@ namespace DemoCaffe
             InitializeComponent();
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTenMH_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-		private void cbLoaiMH_SelectedIndexChanged(object sender, EventArgs e)
-		{
-
-		}
 
 		private void btnThem_Click(object sender, EventArgs e)
 		{
@@ -152,9 +128,25 @@ namespace DemoCaffe
 						SqlDataAdapter adapter = new SqlDataAdapter(command);
 						DataTable dataTable = new DataTable();
 						adapter.Fill(dataTable);
+						
+						// Thêm cột số thứ tự vào DataTable
+						dataTable.Columns.Add("STT", typeof(int));
+						int i = 1;
+						foreach (DataRow row in dataTable.Rows)
+						{
+							row["STT"] = i++;
+						}
 
-						// Hiển thị dữ liệu trên DataGridView
+						// Thiết lập lại thứ tự của cột
 						dgvMatHang.DataSource = dataTable;
+						// Đặt tên cho các cột
+						dgvMatHang.Columns["STT"].HeaderText = "Số thứ tự";
+						dgvMatHang.Columns["MaMH"].HeaderText = "Mã mặt hàng";
+						dgvMatHang.Columns["TenMH"].HeaderText = "Tên mặt hàng";
+						dgvMatHang.Columns["GiaCa"].HeaderText = "Giá cả";
+						dgvMatHang.Columns["DVT"].HeaderText = "Đơn vị tính";
+						dgvMatHang.Columns["MaLoai"].HeaderText = "Mã loại";
+						dgvMatHang.Columns["STT"].DisplayIndex = 0;
 					}
 				}
 				catch (Exception ex)
@@ -194,7 +186,7 @@ namespace DemoCaffe
 						}
 
 						// Đóng DataReader sau khi sử dụng
-						reader.Close();
+						reader.Close();						
 					}
 				}
 				catch (Exception ex)
@@ -202,6 +194,10 @@ namespace DemoCaffe
 					MessageBox.Show("Lỗi: " + ex.Message);
 				}
 			}
+		}		
+		private void btnQuayLai_Click(object sender, EventArgs e)
+		{
+			this.Close();
 		}
 	}
 }

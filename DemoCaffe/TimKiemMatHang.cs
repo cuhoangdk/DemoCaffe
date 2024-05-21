@@ -26,7 +26,7 @@ namespace DemoCaffe
 
         private void TimKiemMatHang_Load(object sender, EventArgs e)
 		{
-			LoadLoaiMatHang();
+			LoadLoaiMatHang();			
 		}
 
 		private void LoadLoaiMatHang()
@@ -118,8 +118,24 @@ namespace DemoCaffe
 						// Đổ dữ liệu vào DataTable
 						adapter.Fill(dataTable);
 
-						// Hiển thị dữ liệu trên DataGridView
+						// Thêm cột số thứ tự vào DataTable
+						dataTable.Columns.Add("STT", typeof(int));
+						int i = 1;
+						foreach (DataRow row in dataTable.Rows)
+						{
+							row["STT"] = i++;
+						}
+
+						// Thiết lập lại thứ tự của cột
 						dgvMatHang.DataSource = dataTable;
+						// Đặt tên cho các cột
+						dgvMatHang.Columns["STT"].HeaderText = "Số thứ tự";
+						dgvMatHang.Columns["MaMH"].HeaderText = "Mã mặt hàng";
+						dgvMatHang.Columns["TenMH"].HeaderText = "Tên mặt hàng";
+						dgvMatHang.Columns["GiaCa"].HeaderText = "Giá cả";
+						dgvMatHang.Columns["DVT"].HeaderText = "Đơn vị tính";
+						dgvMatHang.Columns["MaLoai"].HeaderText = "Mã loại";
+						dgvMatHang.Columns["STT"].DisplayIndex = 0;
 					}
 				}
 				catch (Exception ex)
@@ -143,5 +159,10 @@ namespace DemoCaffe
 			// Xóa dữ liệu trên DataGridView
 			dgvMatHang.DataSource = null;
 		}
+
+		private void btnQuayLai_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}		
 	}
 }

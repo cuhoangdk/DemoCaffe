@@ -104,7 +104,6 @@
 			this.txtTenMH.Name = "txtTenMH";
 			this.txtTenMH.Size = new System.Drawing.Size(215, 30);
 			this.txtTenMH.TabIndex = 4;
-			this.txtTenMH.TextChanged += new System.EventHandler(this.txtTenMH_TextChanged);
 			// 
 			// label4
 			// 
@@ -134,7 +133,6 @@
 			this.txtDonGia.Name = "txtDonGia";
 			this.txtDonGia.Size = new System.Drawing.Size(215, 30);
 			this.txtDonGia.TabIndex = 8;
-			this.txtDonGia.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
 			// 
 			// label6
 			// 
@@ -154,20 +152,20 @@
 			this.txtDVT.Name = "txtDVT";
 			this.txtDVT.Size = new System.Drawing.Size(215, 30);
 			this.txtDVT.TabIndex = 10;
-			this.txtDVT.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
 			// 
 			// dgvMatHang
 			// 
 			this.dgvMatHang.AllowUserToAddRows = false;
 			this.dgvMatHang.AllowUserToDeleteRows = false;
 			this.dgvMatHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvMatHang.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.dgvMatHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvMatHang.Location = new System.Drawing.Point(417, 80);
 			this.dgvMatHang.Name = "dgvMatHang";
 			this.dgvMatHang.ReadOnly = true;
 			this.dgvMatHang.RowHeadersWidth = 51;
 			this.dgvMatHang.RowTemplate.Height = 24;
-			this.dgvMatHang.Size = new System.Drawing.Size(735, 461);
+			this.dgvMatHang.Size = new System.Drawing.Size(856, 461);
 			this.dgvMatHang.TabIndex = 12;
 			// 
 			// cbLoaiMH
@@ -178,7 +176,6 @@
 			this.cbLoaiMH.Name = "cbLoaiMH";
 			this.cbLoaiMH.Size = new System.Drawing.Size(215, 33);
 			this.cbLoaiMH.TabIndex = 13;
-			this.cbLoaiMH.SelectedIndexChanged += new System.EventHandler(this.cbLoaiMH_SelectedIndexChanged);
 			// 
 			// btnThem
 			// 
@@ -230,12 +227,13 @@
 			this.btnQuayLai.TabIndex = 18;
 			this.btnQuayLai.Text = "Quay lại";
 			this.btnQuayLai.UseVisualStyleBackColor = true;
+			this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
 			// 
 			// ThemMatHang
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1182, 553);
+			this.ClientSize = new System.Drawing.Size(1314, 553);
 			this.Controls.Add(this.btnQuayLai);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.btnSua);
