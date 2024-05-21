@@ -119,8 +119,10 @@ namespace DemoCaffe
 				{
 					connection.Open();
 
-					// Truy vấn để lấy danh sách các mặt hàng
-					string query = "SELECT * FROM MENU";
+					// Truy vấn để lấy danh sách các mặt hàng kèm theo tên loại mặt hàng
+					string query = "SELECT MENU.*, LOAIMATHANG.TenLoai " +
+								   "FROM MENU " +
+								   "INNER JOIN LOAIMATHANG ON MENU.MaLoai = LOAIMATHANG.MaLoai";
 
 					// Tạo một đối tượng SqlCommand để thực thi truy vấn
 					using (SqlCommand command = new SqlCommand(query, connection))
@@ -128,7 +130,7 @@ namespace DemoCaffe
 						SqlDataAdapter adapter = new SqlDataAdapter(command);
 						DataTable dataTable = new DataTable();
 						adapter.Fill(dataTable);
-						
+
 						// Thêm cột số thứ tự vào DataTable
 						dataTable.Columns.Add("STT", typeof(int));
 						int i = 1;
@@ -137,16 +139,28 @@ namespace DemoCaffe
 							row["STT"] = i++;
 						}
 
-						// Thiết lập lại thứ tự của cột
-						dgvMatHang.DataSource = dataTable;
+						// Xóa cột "MaLoai" từ DataTable
+						dataTable.Columns.Remove("MaLoai");
+
+						// Đặt lại tên cột số thứ tự và đặt lại thứ tự cột
+						dataTable.Columns["STT"].SetOrdinal(0);
+						dataTable.Columns["STT"].Caption = "Số thứ tự";
+
 						// Đặt tên cho các cột
-						dgvMatHang.Columns["STT"].HeaderText = "Số thứ tự";
-						dgvMatHang.Columns["MaMH"].HeaderText = "Mã mặt hàng";
-						dgvMatHang.Columns["TenMH"].HeaderText = "Tên mặt hàng";
-						dgvMatHang.Columns["GiaCa"].HeaderText = "Giá cả";
-						dgvMatHang.Columns["DVT"].HeaderText = "Đơn vị tính";
-						dgvMatHang.Columns["MaLoai"].HeaderText = "Mã loại";
-						dgvMatHang.Columns["STT"].DisplayIndex = 0;
+						dataTable.Columns["TenLoai"].ColumnName = "Tên loại";
+						dataTable.Columns["TenMH"].ColumnName = "Tên mặt hàng";
+						dataTable.Columns["GiaCa"].ColumnName = "Giá cả";
+						dataTable.Columns["DVT"].ColumnName = "Đơn vị tính";
+						// Di chuyển cột "Tên loại" để nằm bên phải cột "Tên mặt hàng"
+						int tenMatHangIndex = dataTable.Columns.IndexOf("Tên mặt hàng");
+						int tenLoaiIndex = dataTable.Columns.IndexOf("Tên loại");
+						if (tenMatHangIndex < tenLoaiIndex)
+						{
+							dataTable.Columns["Tên loại"].SetOrdinal(tenMatHangIndex + 1);
+						}
+						dataTable.Columns["Giá cả"].SetOrdinal(dataTable.Columns.Count - 1);
+						// Thiết lập lại thứ tự của các cột
+						dgvMatHang.DataSource = dataTable;
 					}
 				}
 				catch (Exception ex)

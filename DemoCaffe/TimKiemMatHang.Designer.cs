@@ -67,7 +67,6 @@
 			this.dgvMatHang.RowTemplate.Height = 24;
 			this.dgvMatHang.Size = new System.Drawing.Size(1009, 461);
 			this.dgvMatHang.TabIndex = 13;
-			this.dgvMatHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatHang_CellContentClick);
 			// 
 			// cbLoaiMH
 			// 

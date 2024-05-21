@@ -15,13 +15,7 @@ namespace DemoCaffe
     {
         public TimKiemMatHang()
         {
-            InitializeComponent();
-            this.dgvMatHang.CellContentClick += dgvMatHang_CellContentClick;
-        }
-
-        private void dgvMatHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            throw new NotImplementedException();
+            InitializeComponent();            
         }
 
         private void TimKiemMatHang_Load(object sender, EventArgs e)
@@ -68,7 +62,10 @@ namespace DemoCaffe
 		private void btnTimKiem_Click(object sender, EventArgs e)
 		{
 			// Xây dựng câu truy vấn dựa trên điều kiện tìm kiếm
-			string query = "SELECT * FROM MENU WHERE 1=1";
+			string query = "SELECT MENU.MaMH, MENU.TenMH, MENU.GiaCa, MENU.DVT, LOAIMATHANG.TenLoai " +
+						   "FROM MENU " +
+						   "INNER JOIN LOAIMATHANG ON MENU.MaLoai = LOAIMATHANG.MaLoai " +
+						   "WHERE 1=1";
 
 			if (!string.IsNullOrWhiteSpace(txtTenMH.Text))
 			{
@@ -78,7 +75,7 @@ namespace DemoCaffe
 			if (cbLoaiMH.SelectedItem != null)
 			{
 				string maLoai = ((LoaiMatHangItem)cbLoaiMH.SelectedItem).MaLoai;
-				query += " AND MaLoai = @MaLoai";
+				query += " AND MENU.MaLoai = @MaLoai";
 			}
 
 			if (!string.IsNullOrWhiteSpace(txtGiaMin.Text) && !string.IsNullOrWhiteSpace(txtGiaMax.Text))
@@ -117,25 +114,33 @@ namespace DemoCaffe
 
 						// Đổ dữ liệu vào DataTable
 						adapter.Fill(dataTable);
-
-						// Thêm cột số thứ tự vào DataTable
+						// Thêm cột STT vào DataTable và đánh số thứ tự
 						dataTable.Columns.Add("STT", typeof(int));
-						int i = 1;
-						foreach (DataRow row in dataTable.Rows)
+						for (int i = 0; i < dataTable.Rows.Count; i++)
 						{
-							row["STT"] = i++;
+							dataTable.Rows[i]["STT"] = i + 1;
 						}
 
-						// Thiết lập lại thứ tự của cột
+						// Thiết lập lại tên cột
+						dataTable.Columns["STT"].SetOrdinal(0);
+						dataTable.Columns["TenLoai"].ColumnName = "Tên loại";
+						dataTable.Columns["MaMH"].ColumnName = "Mã mặt hàng";
+						dataTable.Columns["TenMH"].ColumnName = "Tên mặt hàng";
+						dataTable.Columns["GiaCa"].ColumnName = "Giá cả";
+						dataTable.Columns["DVT"].ColumnName = "Đơn vị tính";
+
+						// Đổi vị trí cột "Tên loại" và "Giá cả"
+						int tenMatHangIndex = dataTable.Columns.IndexOf("Tên mặt hàng");
+						int tenLoaiIndex = dataTable.Columns.IndexOf("Tên loại");
+						if (tenMatHangIndex < tenLoaiIndex)
+						{
+							dataTable.Columns["Tên loại"].SetOrdinal(tenMatHangIndex + 1);
+						}
+						dataTable.Columns["Giá cả"].SetOrdinal(dataTable.Columns.Count - 1); // Đặt "Giá cả" vào cuối cùng
+
+						// Đặt lại nguồn dữ liệu cho DataGridView
 						dgvMatHang.DataSource = dataTable;
-						// Đặt tên cho các cột
-						dgvMatHang.Columns["STT"].HeaderText = "Số thứ tự";
-						dgvMatHang.Columns["MaMH"].HeaderText = "Mã mặt hàng";
-						dgvMatHang.Columns["TenMH"].HeaderText = "Tên mặt hàng";
-						dgvMatHang.Columns["GiaCa"].HeaderText = "Giá cả";
-						dgvMatHang.Columns["DVT"].HeaderText = "Đơn vị tính";
-						dgvMatHang.Columns["MaLoai"].HeaderText = "Mã loại";
-						dgvMatHang.Columns["STT"].DisplayIndex = 0;
+
 					}
 				}
 				catch (Exception ex)
@@ -144,6 +149,7 @@ namespace DemoCaffe
 				}
 			}
 		}
+
 
 		private void btnLamMoi_Click(object sender, EventArgs e)
 		{
