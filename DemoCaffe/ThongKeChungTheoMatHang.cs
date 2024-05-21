@@ -38,10 +38,12 @@ namespace DemoCaffe
 
             // Xây dựng câu truy vấn cơ bản
             string query = "SELECT " +
+                           "ROW_NUMBER() OVER (ORDER BY SUM(cthd.SoLuong) DESC) AS 'STT',"+
                            "m.MaMH AS 'Mã mặt hàng', " +
                            "m.TenMH AS 'Tên mặt hàng', " +
-                           "SUM(cthd.SoLuong) AS 'Số lượng bán được', " +
-                           "SUM(cthd.SoLuong * cthd.GiaCa) AS 'Doanh thu bán' " +
+                           "m.DVT AS 'ĐVT',"+
+                           "SUM(cthd.SoLuong) AS 'Số lượng', " +
+                           "SUM(cthd.SoLuong * cthd.GiaCa) AS 'Doanh thu' " +
                            "FROM HOADON hd " +
                            "JOIN CHITIETHOADON cthd ON hd.MAHD = cthd.MAHD " +
                            "JOIN Menu m ON cthd.MaMH = m.MaMH " +
@@ -54,7 +56,7 @@ namespace DemoCaffe
             }
 
             // Kết thúc câu truy vấn
-            query += " GROUP BY m.MaMH, m.TenMH ORDER BY 'Doanh thu bán' DESC";
+            query += " GROUP BY m.MaMH, m.TenMH, m.DVT ORDER BY 'Doanh thu' DESC";
 
             string doanhThuQuery = "SELECT SUM(cthd.SoLuong * cthd.GiaCa) AS TongDoanhThu " +
                            "FROM HOADON hd " +
