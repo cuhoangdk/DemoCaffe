@@ -162,7 +162,7 @@ namespace DemoCaffe
 
 		private void btnQuayLai_Click(object sender, EventArgs e)
 		{
-			this.Close();
+			this.Close();			
 		}		
 	}
 }

@@ -28,23 +28,14 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.label1 = new System.Windows.Forms.Label();
+			this.components = new System.ComponentModel.Container();
 			this.btnThemMatHang = new System.Windows.Forms.Button();
 			this.btnTimKiemMatHang = new System.Windows.Forms.Button();
 			this.btnThemHoaDonXuat = new System.Windows.Forms.Button();
 			this.btnThongKe = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
+			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
 			this.SuspendLayout();
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-			this.label1.Location = new System.Drawing.Point(252, 82);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(278, 36);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "MÀN HÌNH CHÍNH";
 			// 
 			// btnThemMatHang
 			// 
@@ -100,6 +91,12 @@
 			this.label2.TabIndex = 5;
 			this.label2.Text = "CÀ PHÊ GÓC NHỎ";
 			// 
+			// imageList1
+			// 
+			this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+			this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+			this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+			// 
 			// ManHinhChinh
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -110,7 +107,6 @@
 			this.Controls.Add(this.btnThemHoaDonXuat);
 			this.Controls.Add(this.btnTimKiemMatHang);
 			this.Controls.Add(this.btnThemMatHang);
-			this.Controls.Add(this.label1);
 			this.Name = "ManHinhChinh";
 			this.Text = "ManHinhChinh";
 			this.ResumeLayout(false);
@@ -119,12 +115,11 @@
 		}
 
 		#endregion
-
-		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button btnThemMatHang;
 		private System.Windows.Forms.Button btnTimKiemMatHang;
 		private System.Windows.Forms.Button btnThemHoaDonXuat;
 		private System.Windows.Forms.Button btnThongKe;
 		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.ImageList imageList1;
 	}
 }
