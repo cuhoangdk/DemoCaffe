@@ -143,5 +143,10 @@ namespace DemoCaffe
 			// Xóa dữ liệu trên DataGridView
 			dgvMatHang.DataSource = null;
 		}
-	}
+
+        private void btnQuayLai_Click(object sender, EventArgs e)
+        {
+			this.Close();
+        }
+    }
 }

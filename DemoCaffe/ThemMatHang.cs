@@ -155,6 +155,7 @@ namespace DemoCaffe
 
 						// Hiển thị dữ liệu trên DataGridView
 						dgvMatHang.DataSource = dataTable;
+						dgvMatHang.ReadOnly = true;
 					}
 				}
 				catch (Exception ex)
@@ -203,5 +204,10 @@ namespace DemoCaffe
 				}
 			}
 		}
-	}
+
+        private void btnQuayLai_Click(object sender, EventArgs e)
+        {
+			this.Close();
+        }
+    }
 }

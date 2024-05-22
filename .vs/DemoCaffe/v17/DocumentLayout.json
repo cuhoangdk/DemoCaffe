@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{99F21C9A-B070-4E09-8162-B3662B5ADB27}|DemoCaffe\\DemoCaffe.csproj|c:\\users\\admin\\source\\repos\\democaffe\\democaffe\\themhoadonbanhang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99F21C9A-B070-4E09-8162-B3662B5ADB27}|DemoCaffe\\DemoCaffe.csproj|solutionrelative:democaffe\\themhoadonbanhang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{99F21C9A-B070-4E09-8162-B3662B5ADB27}|DemoCaffe\\DemoCaffe.csproj|c:\\users\\admin\\source\\repos\\democaffe\\democaffe\\themhoadonbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{99F21C9A-B070-4E09-8162-B3662B5ADB27}|DemoCaffe\\DemoCaffe.csproj|solutionrelative:democaffe\\themhoadonbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99F21C9A-B070-4E09-8162-B3662B5ADB27}|DemoCaffe\\DemoCaffe.csproj|c:\\users\\admin\\source\\repos\\democaffe\\democaffe\\themhoadonbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{99F21C9A-B070-4E09-8162-B3662B5ADB27}|DemoCaffe\\DemoCaffe.csproj|C:\\Users\\Admin\\source\\repos\\DemoCaffe\\democaffe\\themhoadonbanhang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99F21C9A-B070-4E09-8162-B3662B5ADB27}|DemoCaffe\\DemoCaffe.csproj|solutionrelative:democaffe\\themhoadonbanhang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99F21C9A-B070-4E09-8162-B3662B5ADB27}|DemoCaffe\\DemoCaffe.csproj|C:\\Users\\Admin\\source\\repos\\DemoCaffe\\democaffe\\themhoadonbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{99F21C9A-B070-4E09-8162-B3662B5ADB27}|DemoCaffe\\DemoCaffe.csproj|solutionrelative:democaffe\\themhoadonbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -22,37 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 10,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ThemHoaDonBanHang.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.cs",
-              "RelativeDocumentMoniker": "DemoCaffe\\ThemHoaDonBanHang.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.cs",
-              "RelativeToolTip": "DemoCaffe\\ThemHoaDonBanHang.cs",
-              "ViewState": "AQIAADoAAAAAAAAAAAAkwLEAAAA6AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T04:07:24.928Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ThemHoaDonBanHang.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.Designer.cs",
-              "RelativeDocumentMoniker": "DemoCaffe\\ThemHoaDonBanHang.Designer.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.Designer.cs",
-              "RelativeToolTip": "DemoCaffe\\ThemHoaDonBanHang.Designer.cs",
-              "ViewState": "AQIAACMBAAAAAAAAAAAwwCcBAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T04:05:31.879Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -72,10 +46,6 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
@@ -87,16 +57,46 @@
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "ThemHoaDonBanHang.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.cs",
               "RelativeDocumentMoniker": "DemoCaffe\\ThemHoaDonBanHang.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.cs [Design]",
-              "RelativeToolTip": "DemoCaffe\\ThemHoaDonBanHang.cs [Design]",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.cs [Design]*",
+              "RelativeToolTip": "DemoCaffe\\ThemHoaDonBanHang.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T03:34:10.74Z",
+              "WhenOpened": "2024-05-20T07:13:29.611Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ThemHoaDonBanHang.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.cs",
+              "RelativeDocumentMoniker": "DemoCaffe\\ThemHoaDonBanHang.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.cs*",
+              "RelativeToolTip": "DemoCaffe\\ThemHoaDonBanHang.cs*",
+              "ViewState": "AQIAAOoAAAAAAAAAAAAkwOEBAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T04:07:24.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ThemHoaDonBanHang.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.Designer.cs",
+              "RelativeDocumentMoniker": "DemoCaffe\\ThemHoaDonBanHang.Designer.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\DemoCaffe\\DemoCaffe\\ThemHoaDonBanHang.Designer.cs",
+              "RelativeToolTip": "DemoCaffe\\ThemHoaDonBanHang.Designer.cs",
+              "ViewState": "AQIAADYBAAAAAAAAAAAwwE0BAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T04:05:31.879Z",
+              "EditorCaption": ""
             }
           ]
         },
