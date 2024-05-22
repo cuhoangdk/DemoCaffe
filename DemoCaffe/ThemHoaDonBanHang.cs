@@ -236,7 +236,6 @@ namespace DemoCaffe
             }
         }
 
-        
         private void LoadChiTietHoaDon(string maHD)
         {
             // Xây dựng câu truy vấn để lấy dữ liệu từ cơ sở dữ liệu
@@ -261,18 +260,18 @@ namespace DemoCaffe
                         // Tạo một DataAdapter để lấy dữ liệu từ cơ sở dữ liệu
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
                         DataTable dataTable = new DataTable();
-
-                        // Đổ dữ liệu vào DataTable
                         adapter.Fill(dataTable);
 
                         // Xóa dữ liệu hiện tại trong dgvChiTietHoaDon
                         dgvChiTietHoaDon.Rows.Clear();
 
                         double tongTien = 0;
+                        int stt = 1;
                         // Thêm dữ liệu vào các cột có sẵn
                         foreach (DataRow dataRow in dataTable.Rows)
                         {
                             dgvChiTietHoaDon.Rows.Add(
+                                stt++,
                                 dataRow["MaMH"],
                                 dataRow["TenMH"],
                                 dataRow["GiaCa"],
@@ -297,14 +296,24 @@ namespace DemoCaffe
         
         private void dataChiTietHoaDon()
         {
+            // Tạo cột STT và thêm vào đầu tiên
+            DataGridViewTextBoxColumn sttColumn = new DataGridViewTextBoxColumn();
+            sttColumn.Name = "STT";
+            sttColumn.HeaderText = "STT";
+            dgvChiTietHoaDon.Columns.Add(sttColumn);
+
+            // Tiến hành thêm các cột khác như thông thường
             dgvChiTietHoaDon.Columns.Add("MaMH", "Mã MH");
             dgvChiTietHoaDon.Columns.Add("TenMH", "Tên MH");
             dgvChiTietHoaDon.Columns.Add("GiaCa", "Giá Cả");
             dgvChiTietHoaDon.Columns.Add("DVT", "ĐVT");
-            dgvChiTietHoaDon.Columns.Add("MaLoai", "MaLoai");
+            dgvChiTietHoaDon.Columns.Add("MaLoai", "Mã Loại");
             dgvChiTietHoaDon.Columns.Add("SoLuong", "Số Lượng");
+
+            // Đặt lại chỉ số của cột STT
+            dgvChiTietHoaDon.Columns["STT"].DisplayIndex = 0;
         }
-        
+
         public void AddChiTietHoaDon(string maMH, string tenMH, string giaCa, string dvt, string maLoai, int soLuong)
         {
             bool isExisting = false;
@@ -330,7 +339,7 @@ namespace DemoCaffe
             // Nếu không tồn tại, thêm một dòng mới
             if (!isExisting)
             {
-                dgvChiTietHoaDon.Rows.Add(maMH, tenMH, giaCa, dvt, maLoai, soLuong);
+                dgvChiTietHoaDon.Rows.Add(null,maMH, tenMH, giaCa, dvt, maLoai, soLuong);
 
                 // Parse giaCa và soLuong cho việc tính toán tổng số tiền
                 this.giaCa = int.Parse(giaCa);
@@ -338,8 +347,27 @@ namespace DemoCaffe
             }
             this.maMH = maMH;
             this.soLuong = soLuong;
+
+            UpdateSTT();
         }
-        
+
+        private void UpdateSTT()
+        {
+            int stt = 1;
+            foreach (DataGridViewRow row in dgvChiTietHoaDon.Rows)
+            {
+                if (row.Cells["MaMH"].Value != null)
+                {
+                    row.Cells["STT"].Value = stt;
+                    stt++;
+                }
+                else
+                {
+                    row.Cells["STT"].Value = null;
+                }
+            }
+        }
+
         private string SetNextMaHD()
         {
             // Mở kết nối đến cơ sở dữ liệu
@@ -497,11 +525,17 @@ namespace DemoCaffe
                     // Tạo một đối tượng SqlCommand để thực thi truy vấn
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        // Tạo một DataAdapter để lấy dữ liệu từ cơ sở dữ liệu
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
-
-                        // Đổ dữ liệu từ DataAdapter vào DataTable
                         adapter.Fill(dataTable);
+
+                        // Thêm cột số thứ tự vào DataTable
+                        dataTable.Columns.Add("STT", typeof(int));
+                        int i = 1;
+                        foreach (DataRow row in dataTable.Rows)
+                        {
+                            row["STT"] = i++;
+                        }
+                        dataTable.Columns["STT"].SetOrdinal(0);
                     }
                 }
                 catch (Exception ex)
