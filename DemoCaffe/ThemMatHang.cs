@@ -32,6 +32,13 @@ namespace DemoCaffe
 			string maLoai = ((LoaiMatHangItem)cbLoaiMH.SelectedItem).MaLoai;
 			string tenMH = txtTenMH.Text;
 
+			// Kiểm tra giá trị của txtDonGia có hợp lệ không và lớn hơn 0
+			if (!decimal.TryParse(txtDonGia.Text, out decimal giaCa) || giaCa <= 0)
+			{
+				MessageBox.Show("Giá cả phải là một số hợp lệ và lớn hơn 0.");
+				return;
+			}
+
 			// Mở kết nối đến cơ sở dữ liệu
 			using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
 			{
