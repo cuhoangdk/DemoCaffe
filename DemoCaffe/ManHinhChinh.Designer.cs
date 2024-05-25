@@ -44,7 +44,7 @@
 			this.btnThemMatHang.Name = "btnThemMatHang";
 			this.btnThemMatHang.Size = new System.Drawing.Size(230, 105);
 			this.btnThemMatHang.TabIndex = 1;
-			this.btnThemMatHang.Text = "THÊM MẶT HÀNG";
+			this.btnThemMatHang.Text = "QUẢN LÝ MẶT HÀNG";
 			this.btnThemMatHang.UseVisualStyleBackColor = true;
 			this.btnThemMatHang.Click += new System.EventHandler(this.btnThemMatHang_Click);
 			// 
@@ -55,7 +55,7 @@
 			this.btnTimKiemMatHang.Name = "btnTimKiemMatHang";
 			this.btnTimKiemMatHang.Size = new System.Drawing.Size(230, 105);
 			this.btnTimKiemMatHang.TabIndex = 2;
-			this.btnTimKiemMatHang.Text = "TÌM KIẾM MẶT HÀNG";
+			this.btnTimKiemMatHang.Text = "TRA CỨU MẶT HÀNG";
 			this.btnTimKiemMatHang.UseVisualStyleBackColor = true;
 			this.btnTimKiemMatHang.Click += new System.EventHandler(this.btnTimKiemMatHang_Click);
 			// 
@@ -66,7 +66,7 @@
 			this.btnThemHoaDonXuat.Name = "btnThemHoaDonXuat";
 			this.btnThemHoaDonXuat.Size = new System.Drawing.Size(230, 105);
 			this.btnThemHoaDonXuat.TabIndex = 3;
-			this.btnThemHoaDonXuat.Text = "THÊM HOÁ ĐƠN BÁN HÀNG";
+			this.btnThemHoaDonXuat.Text = "QUẢN LÝ HOÁ ĐƠN BÁN HÀNG";
 			this.btnThemHoaDonXuat.UseVisualStyleBackColor = true;
 			this.btnThemHoaDonXuat.Click += new System.EventHandler(this.btnThemHoaDonXuat_Click);
 			// 
@@ -108,7 +108,7 @@
 			this.Controls.Add(this.btnTimKiemMatHang);
 			this.Controls.Add(this.btnThemMatHang);
 			this.Name = "ManHinhChinh";
-			this.Text = "ManHinhChinh";
+			this.Text = "Màn hình chính";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

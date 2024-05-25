@@ -241,7 +241,7 @@ namespace DemoCaffe
             // Xây dựng câu truy vấn để lấy dữ liệu từ cơ sở dữ liệu
             string query = @"
         SELECT cthd.MaMH, mh.TenMH, cthd.GiaCa, mh.DVT, mh.MaLoai, cthd.SoLuong 
-        FROM ChiTietHoaDon cthd
+        FROM CHITIETHOADON cthd
         JOIN Menu mh ON cthd.MaMH = mh.MaMH
         WHERE cthd.MaHD = @MaHD";
 
@@ -574,7 +574,7 @@ namespace DemoCaffe
                     connection.Open();
 
                     // Truy vấn để lấy tổng tiền từ các chi tiết hóa đơn có mã hóa đơn tương ứng
-                    string query = "SELECT SUM(SoLuong * GiaCa) AS TongTien FROM ChiTietHoaDon WHERE MaHD = @MaHD";
+                    string query = "SELECT SUM(SoLuong * GiaCa) AS TongTien FROM CHITIETHOADON WHERE MaHD = @MaHD";
 
                     // Tạo một đối tượng SqlCommand để thực thi truy vấn
                     using (SqlCommand command = new SqlCommand(query, connection))
