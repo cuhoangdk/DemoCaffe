@@ -57,9 +57,35 @@ namespace DemoCaffe
                         // Tạo một DataAdapter để lấy dữ liệu từ cơ sở dữ liệu
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
                         DataTable dataTable = new DataTable();
-
-                        // Đổ dữ liệu vào DataTable
                         adapter.Fill(dataTable);
+
+                        // Thêm cột số thứ tự vào DataTable
+                        dataTable.Columns.Add("STT", typeof(int));
+                        int i = 1;
+                        foreach (DataRow row in dataTable.Rows)
+                        {
+                            row["STT"] = i++;
+                        }
+
+						// Đặt lại tên cột số thứ tự và đặt lại thứ tự cột
+						dataTable.Columns["STT"].SetOrdinal(0);
+						dataTable.Columns["STT"].Caption = "Số thứ tự";
+
+                        // Đặt tên cho các cột
+                        dataTable.Columns["MaMH"].ColumnName = "Mã mặt hàng";
+                        dataTable.Columns["MaLoai"].ColumnName = "Tên loại";
+                        dataTable.Columns["TenMH"].ColumnName = "Tên mặt hàng";
+                        dataTable.Columns["GiaCa"].ColumnName = "Giá";
+                        dataTable.Columns["DVT"].ColumnName = "ĐVT";
+
+                        // Di chuyển cột "Tên loại" để nằm bên phải cột "Tên mặt hàng"
+                        int tenMatHangIndex = dataTable.Columns.IndexOf("Tên mặt hàng");
+                        int tenLoaiIndex = dataTable.Columns.IndexOf("Tên loại");
+                        if (tenMatHangIndex < tenLoaiIndex)
+                        {
+                            dataTable.Columns["Tên loại"].SetOrdinal(tenMatHangIndex + 1);
+                        }
+                        dataTable.Columns["Giá"].SetOrdinal(dataTable.Columns.Count - 1);
 
                         // Kiểm tra nếu DataTable có dữ liệu
                         if (dataTable.Rows.Count > 0)
@@ -87,11 +113,11 @@ namespace DemoCaffe
                 // Lấy hàng được chọn
                 DataGridViewRow selectedRow = dgvMatHang.Rows[e.RowIndex];
 
-                selectedMaMH = selectedRow.Cells["MaMH"].Value.ToString();
-                selectedTenMH = selectedRow.Cells["TenMH"].Value.ToString();
-                selectedGiaCa = selectedRow.Cells["GiaCa"].Value.ToString();
-                selectedDVT = selectedRow.Cells["DVT"].Value.ToString();
-                selectedMaLoai = selectedRow.Cells["MaLoai"].Value.ToString();
+                selectedMaMH = selectedRow.Cells["Mã mặt hàng"].Value.ToString();
+                selectedTenMH = selectedRow.Cells["Tên mặt hàng"].Value.ToString();
+                selectedGiaCa = selectedRow.Cells["Giá"].Value.ToString();
+                selectedDVT = selectedRow.Cells["ĐVT"].Value.ToString();
+                selectedMaLoai = selectedRow.Cells["Tên loại"].Value.ToString();
 
                 // Hiển thị thông tin hoặc thực hiện các xử lý cần thiết
                 selectedItem.Text = $"Chọn {selectedTenMH}";
