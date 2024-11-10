@@ -40,9 +40,13 @@
             // 
             // dgvMatHang
             // 
+            this.dgvMatHang.AllowUserToAddRows = false;
+            this.dgvMatHang.AllowUserToDeleteRows = false;
+            this.dgvMatHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMatHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMatHang.Location = new System.Drawing.Point(12, 66);
             this.dgvMatHang.Name = "dgvMatHang";
+            this.dgvMatHang.ReadOnly = true;
             this.dgvMatHang.RowHeadersWidth = 51;
             this.dgvMatHang.RowTemplate.Height = 24;
             this.dgvMatHang.Size = new System.Drawing.Size(764, 291);
@@ -125,7 +129,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvMatHang);
             this.Name = "ThemChiTietHoaDon";
-            this.Text = "ThemChiTietHoaDon";
+            this.Text = "Thêm Chi Tiết Hóa Đơn";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatHang)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

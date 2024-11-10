@@ -18,30 +18,6 @@ namespace DemoCaffe
             InitializeComponent();
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTenMH_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-		private void cbLoaiMH_SelectedIndexChanged(object sender, EventArgs e)
-		{
-
-		}
 
 		private void btnThem_Click(object sender, EventArgs e)
 		{
@@ -55,6 +31,13 @@ namespace DemoCaffe
 			// Lấy mã loại mặt hàng từ đối tượng được chọn
 			string maLoai = ((LoaiMatHangItem)cbLoaiMH.SelectedItem).MaLoai;
 			string tenMH = txtTenMH.Text;
+
+			// Kiểm tra giá trị của txtDonGia có hợp lệ không và lớn hơn 0
+			if (!decimal.TryParse(txtDonGia.Text, out decimal giaCa) || giaCa <= 0)
+			{
+				MessageBox.Show("Giá cả phải là một số hợp lệ và lớn hơn 0.");
+				return;
+			}
 
 			// Mở kết nối đến cơ sở dữ liệu
 			using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
@@ -143,8 +126,10 @@ namespace DemoCaffe
 				{
 					connection.Open();
 
-					// Truy vấn để lấy danh sách các mặt hàng
-					string query = "SELECT * FROM MENU";
+					// Truy vấn để lấy danh sách các mặt hàng kèm theo tên loại mặt hàng
+					string query = "SELECT MENU.*, LOAIMATHANG.TenLoai " +
+								   "FROM MENU " +
+								   "INNER JOIN LOAIMATHANG ON MENU.MaLoai = LOAIMATHANG.MaLoai";
 
 					// Tạo một đối tượng SqlCommand để thực thi truy vấn
 					using (SqlCommand command = new SqlCommand(query, connection))
@@ -153,8 +138,37 @@ namespace DemoCaffe
 						DataTable dataTable = new DataTable();
 						adapter.Fill(dataTable);
 
-						// Hiển thị dữ liệu trên DataGridView
+						// Thêm cột số thứ tự vào DataTable
+						dataTable.Columns.Add("STT", typeof(int));
+						int i = 1;
+						foreach (DataRow row in dataTable.Rows)
+						{
+							row["STT"] = i++;
+						}
+
+						// Xóa cột "MaLoai" từ DataTable
+						dataTable.Columns.Remove("MaLoai");
+
+						// Đặt lại tên cột số thứ tự và đặt lại thứ tự cột
+						dataTable.Columns["STT"].SetOrdinal(0);
+						dataTable.Columns["STT"].Caption = "Số thứ tự";
+
+						// Đặt tên cho các cột
+						dataTable.Columns["TenLoai"].ColumnName = "Tên loại";
+						dataTable.Columns["TenMH"].ColumnName = "Tên mặt hàng";
+						dataTable.Columns["GiaCa"].ColumnName = "Giá cả";
+						dataTable.Columns["DVT"].ColumnName = "Đơn vị tính";
+						// Di chuyển cột "Tên loại" để nằm bên phải cột "Tên mặt hàng"
+						int tenMatHangIndex = dataTable.Columns.IndexOf("Tên mặt hàng");
+						int tenLoaiIndex = dataTable.Columns.IndexOf("Tên loại");
+						if (tenMatHangIndex < tenLoaiIndex)
+						{
+							dataTable.Columns["Tên loại"].SetOrdinal(tenMatHangIndex + 1);
+						}
+						dataTable.Columns["Giá cả"].SetOrdinal(dataTable.Columns.Count - 1);
+						// Thiết lập lại thứ tự của các cột
 						dgvMatHang.DataSource = dataTable;
+						dgvMatHang.ReadOnly = true;
 					}
 				}
 				catch (Exception ex)
@@ -194,7 +208,7 @@ namespace DemoCaffe
 						}
 
 						// Đóng DataReader sau khi sử dụng
-						reader.Close();
+						reader.Close();						
 					}
 				}
 				catch (Exception ex)
@@ -202,6 +216,10 @@ namespace DemoCaffe
 					MessageBox.Show("Lỗi: " + ex.Message);
 				}
 			}
+		}		
+		private void btnQuayLai_Click(object sender, EventArgs e)
+		{
+			this.Close();
 		}
-	}
+    }
 }

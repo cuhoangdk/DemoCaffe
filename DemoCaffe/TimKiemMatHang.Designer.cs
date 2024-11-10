@@ -65,9 +65,8 @@
 			this.dgvMatHang.ReadOnly = true;
 			this.dgvMatHang.RowHeadersWidth = 51;
 			this.dgvMatHang.RowTemplate.Height = 24;
-			this.dgvMatHang.Size = new System.Drawing.Size(731, 461);
+			this.dgvMatHang.Size = new System.Drawing.Size(1009, 461);
 			this.dgvMatHang.TabIndex = 13;
-			this.dgvMatHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatHang_CellContentClick);
 			// 
 			// cbLoaiMH
 			// 
@@ -116,6 +115,7 @@
 			this.btnQuayLai.TabIndex = 19;
 			this.btnQuayLai.Text = "Quay lại";
 			this.btnQuayLai.UseVisualStyleBackColor = true;
+			this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
 			// 
 			// btnLamMoi
 			// 
@@ -181,7 +181,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1182, 553);
+			this.ClientSize = new System.Drawing.Size(1462, 553);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.txtGiaMax);
 			this.Controls.Add(this.txtGiaMin);
@@ -201,7 +201,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgvMatHang)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
-
         }
 
         #endregion

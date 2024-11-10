@@ -18,119 +18,123 @@ namespace DemoCaffe
             InitializeComponent();
         }
 
-        private void btnThongKe_Click(object sender, EventArgs e)
-        {
-            DateTime tuNgay;
-            DateTime denNgay;
+		private void btnThongKe_Click(object sender, EventArgs e)
+		{
+			DateTime tuNgay;
+			DateTime denNgay;
 
-            // Validate the dates
-            if (!DateTime.TryParse(txtTuNgay.Text, out tuNgay) || !DateTime.TryParse(txtDenNgay.Text, out denNgay))
-            {
-                MessageBox.Show("Ngày không hợp lệ. Vui lòng nhập lại ngày hợp lệ.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+			// Validate the dates
+			if (!DateTime.TryParse(txtTuNgay.Text, out tuNgay) || !DateTime.TryParse(txtDenNgay.Text, out denNgay))
+			{
+				MessageBox.Show("Ngày không hợp lệ. Vui lòng nhập lại ngày hợp lệ.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
 
-            if (tuNgay > denNgay)
-            {
-                MessageBox.Show("'Từ ngày' phải nhỏ hơn hoặc bằng 'Đến ngày'.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+			if (tuNgay > denNgay)
+			{
+				MessageBox.Show("'Từ ngày' phải nhỏ hơn hoặc bằng 'Đến ngày'.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
 
-            // Xây dựng câu truy vấn cơ bản
-            string query = "SELECT " +
-                           "ROW_NUMBER() OVER (ORDER BY SUM(cthd.SoLuong) DESC) AS 'STT',"+
-                           "m.MaMH AS 'Mã mặt hàng', " +
-                           "m.TenMH AS 'Tên mặt hàng', " +
-                           "m.DVT AS 'ĐVT',"+
-                           "SUM(cthd.SoLuong) AS 'Số lượng', " +
-                           "SUM(cthd.SoLuong * cthd.GiaCa) AS 'Doanh thu' " +
-                           "FROM HOADON hd " +
-                           "JOIN CHITIETHOADON cthd ON hd.MAHD = cthd.MAHD " +
-                           "JOIN Menu m ON cthd.MaMH = m.MaMH " +
-                           "WHERE 1=1";
+			// Xây dựng câu truy vấn cơ bản
+			string query = "SELECT " +
+						   "ROW_NUMBER() OVER (ORDER BY SUM(cthd.SoLuong) DESC) AS 'STT'," +
+						   "m.MaMH AS 'Mã mặt hàng', " +
+						   "m.TenMH AS 'Tên mặt hàng', " +
+						   "m.DVT AS 'ĐVT'," +
+						   "SUM(cthd.SoLuong) AS 'Số lượng', " +
+						   "SUM(cthd.SoLuong * cthd.GiaCa) AS 'Doanh thu' " +
+						   "FROM HOADON hd " +
+						   "JOIN CHITIETHOADON cthd ON hd.MAHD = cthd.MAHD " +
+						   "JOIN Menu m ON cthd.MaMH = m.MaMH " +
+						   "WHERE 1=1";
 
-            // Thêm điều kiện thời gian nếu có
-            if (!string.IsNullOrWhiteSpace(txtTuNgay.Text) && !string.IsNullOrWhiteSpace(txtDenNgay.Text))
-            {
-                query += " AND hd.ThoiGian BETWEEN @TuNgay AND @DenNgay";
-            }
+			// Thêm điều kiện thời gian nếu có
+			if (!string.IsNullOrWhiteSpace(txtTuNgay.Text) && !string.IsNullOrWhiteSpace(txtDenNgay.Text))
+			{
+				query += " AND hd.ThoiGian BETWEEN @TuNgay AND @DenNgay";
+			}
 
-            // Kết thúc câu truy vấn
-            query += " GROUP BY m.MaMH, m.TenMH, m.DVT ORDER BY 'Doanh thu' DESC";
+			// Kết thúc câu truy vấn
+			query += " GROUP BY m.MaMH, m.TenMH, m.DVT ORDER BY 'Doanh thu' DESC";
 
-            string doanhThuQuery = "SELECT SUM(cthd.SoLuong * cthd.GiaCa) AS TongDoanhThu " +
-                           "FROM HOADON hd " +
-                           "JOIN CHITIETHOADON cthd ON hd.MaHD = cthd.MaHD " +
-                           "WHERE hd.ThoiGian BETWEEN @TuNgay AND @DenNgay";
+			string doanhThuQuery = "SELECT SUM(cthd.SoLuong * cthd.GiaCa) AS TongDoanhThu " +
+						   "FROM HOADON hd " +
+						   "JOIN CHITIETHOADON cthd ON hd.MaHD = cthd.MaHD " +
+						   "WHERE hd.ThoiGian BETWEEN @TuNgay AND @DenNgay";
 
-            // Mở kết nối đến cơ sở dữ liệu
-            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
-            {
-                try
-                {
-                    connection.Open();
+			// Mở kết nối đến cơ sở dữ liệu
+			using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+			{
+				try
+				{
+					connection.Open();
 
-                    // Tạo một đối tượng SqlCommand để thực thi truy vấn
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        // Truyền các tham số tìm kiếm vào truy vấn
-                        if (!string.IsNullOrWhiteSpace(txtTuNgay.Text) && !string.IsNullOrWhiteSpace(txtDenNgay.Text))
-                        {
-                            command.Parameters.AddWithValue("@TuNgay", tuNgay);
-                            command.Parameters.AddWithValue("@DenNgay", denNgay);
-                        }
+					// Tạo một đối tượng SqlCommand để thực thi truy vấn
+					using (SqlCommand command = new SqlCommand(query, connection))
+					{
+						// Truyền các tham số tìm kiếm vào truy vấn
+						if (!string.IsNullOrWhiteSpace(txtTuNgay.Text) && !string.IsNullOrWhiteSpace(txtDenNgay.Text))
+						{
+							command.Parameters.AddWithValue("@TuNgay", tuNgay);
+							command.Parameters.AddWithValue("@DenNgay", denNgay);
+						}
 
-                        // Tạo một DataAdapter để lấy dữ liệu từ cơ sở dữ liệu
-                        SqlDataAdapter adapter = new SqlDataAdapter(command);
-                        DataTable dataTable = new DataTable();
-                        // Tạo một DataGridViewCellStyle mới
-                        DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
+						// Tạo một DataAdapter để lấy dữ liệu từ cơ sở dữ liệu
+						SqlDataAdapter adapter = new SqlDataAdapter(command);
+						DataTable dataTable = new DataTable();
+						// Tạo một DataGridViewCellStyle mới
+						DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
 
-                        // Thiết lập font cho cellStyle
-                        cellStyle.Font = new Font("Arial", 12); // Thay đổi kích thước font ở đây
+						// Thiết lập font cho cellStyle
+						cellStyle.Font = new Font("Arial", 12); // Thay đổi kích thước font ở đây
 
-                        // Áp dụng cellStyle cho cột trong DataGridView
-                        dgvMatHang.DefaultCellStyle = cellStyle;
-                        dgvMatHang.ColumnHeadersDefaultCellStyle = cellStyle;
-                        // Đổ dữ liệu vào DataTable
-                        adapter.Fill(dataTable);
+						// Áp dụng cellStyle cho cột trong DataGridView
+						dgvMatHang.DefaultCellStyle = cellStyle;
+						dgvMatHang.ColumnHeadersDefaultCellStyle = cellStyle;
+						// Đổ dữ liệu vào DataTable
+						adapter.Fill(dataTable);
 
-                        // Hiển thị dữ liệu trên DataGridView
-                        dgvMatHang.DataSource = dataTable;
-                    }
-                    // Thực thi truy vấn tính tổng doanh thu
-                    using (SqlCommand doanhThuCommand = new SqlCommand(doanhThuQuery, connection))
-                    {
-                        if (!string.IsNullOrWhiteSpace(txtTuNgay.Text) && !string.IsNullOrWhiteSpace(txtDenNgay.Text))
-                        {
-                            doanhThuCommand.Parameters.AddWithValue("@TuNgay", tuNgay);
-                            doanhThuCommand.Parameters.AddWithValue("@DenNgay", denNgay);
-                        }
+						// Hiển thị dữ liệu trên DataGridView
+						dgvMatHang.DataSource = dataTable;
+					}
+					// Thực thi truy vấn tính tổng doanh thu
+					using (SqlCommand doanhThuCommand = new SqlCommand(doanhThuQuery, connection))
+					{
+						if (!string.IsNullOrWhiteSpace(txtTuNgay.Text) && !string.IsNullOrWhiteSpace(txtDenNgay.Text))
+						{
+							doanhThuCommand.Parameters.AddWithValue("@TuNgay", tuNgay);
+							doanhThuCommand.Parameters.AddWithValue("@DenNgay", denNgay);
+						}
 
-                        // Thực thi truy vấn và lấy kết quả
-                        object result = doanhThuCommand.ExecuteScalar();
-                        if (result != null)
-                        {
-                            txtTongDoanhThu.Text = result.ToString() + " VNĐ";
-                        }
-                        else
-                        {
-                            txtTongDoanhThu.Text = "0 VNĐ";
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi: " + ex.Message);
-                }
-            }
-        }
+						// Thực thi truy vấn và lấy kết quả
+						object result = doanhThuCommand.ExecuteScalar();
+						if (result != null)
+						{
+							txtTongDoanhThu.Text = result.ToString() + " VNĐ";
+						}
+						else
+						{
+							txtTongDoanhThu.Text = "0 VNĐ";
+						}
+					}
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show("Lỗi: " + ex.Message);
+				}
+			}
+		}
 
-        private void btnLamMoi_Click(object sender, EventArgs e)
-        {
-            dgvMatHang.DataSource = null;
-            txtDenNgay.Clear();
-            txtTuNgay.Clear();
-        }
-    }
+		private void btnLamMoi_Click(object sender, EventArgs e)
+		{
+			dgvMatHang.DataSource = null;
+			txtDenNgay.Clear();
+			txtTuNgay.Clear();
+		}
+		private void btnQuayLai_Click(object sender, EventArgs e)
+		{
+            this.Close();
+		}
+	}
 }

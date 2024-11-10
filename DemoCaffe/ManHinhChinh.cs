@@ -19,26 +19,26 @@ namespace DemoCaffe
 
 		private void btnThemMatHang_Click(object sender, EventArgs e)
 		{
-			ThemMatHang themMatHang = new ThemMatHang();
-			themMatHang.Show();
+			ThemMatHang themMatHang = new ThemMatHang();			
+			themMatHang.ShowDialog();
 		}
 
 		private void btnTimKiemMatHang_Click(object sender, EventArgs e)
 		{
 			TimKiemMatHang timKiemMatHang = new TimKiemMatHang();
-			timKiemMatHang.Show();
+			timKiemMatHang.ShowDialog();
 		}
 
 		private void btnThemHoaDonXuat_Click(object sender, EventArgs e)
 		{
 			ThemHoaDonBanHang themHoaDonBanHang = new ThemHoaDonBanHang();
-			themHoaDonBanHang.Show();
+			themHoaDonBanHang.ShowDialog();
 		}
 
 		private void btnThongKe_Click(object sender, EventArgs e)
 		{
 			ThongKeChungTheoMatHang thongKeChungTheoMatHang = new ThongKeChungTheoMatHang();
-			thongKeChungTheoMatHang.Show();
+			thongKeChungTheoMatHang.ShowDialog();
 		}		
 	}
 }
