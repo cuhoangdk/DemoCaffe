@@ -41,3 +41,4 @@ C:\Workspace\QuanLyDuAnPhanMem\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.csproj.Co
 C:\Workspace\QuanLyDuAnPhanMem\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.exe
 C:\Workspace\QuanLyDuAnPhanMem\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.pdb
 C:\Users\Admin\source\repos\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.ManHinhChinh.resources
+C:\Workspace\QuanLyDuAnPhanMem\DemoCaffe\DemoCaffe\obj\Debug\DemoCaffe.ManHinhChinh.resources

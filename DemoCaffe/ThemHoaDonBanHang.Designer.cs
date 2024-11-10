@@ -56,23 +56,34 @@
             // 
             // dgvHoaDon
             // 
+<<<<<<< Updated upstream
             this.dgvHoaDon.AllowUserToAddRows = false;
             this.dgvHoaDon.AllowUserToDeleteRows = false;
+=======
+>>>>>>> Stashed changes
             this.dgvHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHoaDon.Location = new System.Drawing.Point(417, 365);
             this.dgvHoaDon.Name = "dgvHoaDon";
+<<<<<<< Updated upstream
             this.dgvHoaDon.ReadOnly = true;
+=======
+>>>>>>> Stashed changes
             this.dgvHoaDon.RowHeadersWidth = 51;
             this.dgvHoaDon.RowTemplate.Height = 24;
             this.dgvHoaDon.Size = new System.Drawing.Size(837, 176);
             this.dgvHoaDon.TabIndex = 14;
+<<<<<<< Updated upstream
             this.dgvHoaDon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellClick);
+=======
+            this.dgvHoaDon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellContentClick);
+>>>>>>> Stashed changes
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< Updated upstream
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(420, 10);
             this.label2.Name = "label2";
@@ -84,11 +95,25 @@
             // 
             this.dgvChiTietHoaDon.AllowUserToAddRows = false;
             this.dgvChiTietHoaDon.AllowUserToDeleteRows = false;
+=======
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label2.Location = new System.Drawing.Point(483, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(424, 38);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Quản lý hóa đơn bán hàng";
+            // 
+            // dgvChiTietHoaDon
+            // 
+>>>>>>> Stashed changes
             this.dgvChiTietHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvChiTietHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChiTietHoaDon.Location = new System.Drawing.Point(417, 129);
             this.dgvChiTietHoaDon.Name = "dgvChiTietHoaDon";
+<<<<<<< Updated upstream
             this.dgvChiTietHoaDon.ReadOnly = true;
+=======
+>>>>>>> Stashed changes
             this.dgvChiTietHoaDon.RowHeadersWidth = 51;
             this.dgvChiTietHoaDon.RowTemplate.Height = 24;
             this.dgvChiTietHoaDon.Size = new System.Drawing.Size(837, 176);
@@ -103,7 +128,10 @@
             this.btnQuayLai.TabIndex = 33;
             this.btnQuayLai.Text = "Quay lại";
             this.btnQuayLai.UseVisualStyleBackColor = true;
+<<<<<<< Updated upstream
             this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
+=======
+>>>>>>> Stashed changes
             // 
             // btn_LamMoi
             // 
@@ -287,7 +315,10 @@
             this.btnXoaMH.TabIndex = 38;
             this.btnXoaMH.Text = "Xóa Mặt Hàng";
             this.btnXoaMH.UseVisualStyleBackColor = true;
+<<<<<<< Updated upstream
             this.btnXoaMH.Click += new System.EventHandler(this.btnXoaMH_Click);
+=======
+>>>>>>> Stashed changes
             // 
             // ThemHoaDonBanHang
             // 
