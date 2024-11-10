@@ -55,6 +55,12 @@
     <Compile Include="ChiTietHoaDon.cs" />
     <Compile Include="ConnectionString.cs" />
     <Compile Include="LoaiMatHangItem.cs" />
+    <Compile Include="ManHinhChinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManHinhChinh.Designer.cs">
+      <DependentUpon>ManHinhChinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="NhanVien.cs" />
     <Compile Include="ThemChiTietHoaDon.cs">
       <SubType>Form</SubType>
@@ -88,6 +94,9 @@
     <Compile Include="TimKiemMatHang.Designer.cs">
       <DependentUpon>TimKiemMatHang.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ManHinhChinh.resx">
+      <DependentUpon>ManHinhChinh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ThemChiTietHoaDon.resx">
       <DependentUpon>ThemChiTietHoaDon.cs</DependentUpon>
     </EmbeddedResource>
